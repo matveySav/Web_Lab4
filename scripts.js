@@ -160,11 +160,16 @@ function setupEvents(){
     refreshBtn.addEventListener('click', () => loadWeather());
     addCityBtn.addEventListener('click', () => showModal());
     addFirstBtn.addEventListener('click', () => showModal());
-    retryBtn.addEventListener('click', () => getLocation());
-    retryBtn.addEventListener('click', () => loadWeather());
+    retryBtn.addEventListener('click', () => retryAction());
     saveBtn.addEventListener('click', () => addCity());
     cancelBtn.addEventListener('click', () => hideModal());
     cityName.addEventListener('input', () => showSuggestions(cityName.value));
+}
+function retryAction(){
+    loadWeather();
+    setTimeout(() => {
+        if (!state.currentLocation ) getLocation();
+    }, 300);
 }
 function getLocation(){
     if (!navigator.geolocation){
