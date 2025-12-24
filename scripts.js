@@ -142,11 +142,8 @@ document.addEventListener('DOMContentLoaded', () => {
     loadState();
     setupEvents();
     showLoading();
-    if (state.currentLocation ){
-        loadWeather();
-    } else {
-        getLocation();
-    }
+    loadWeather();
+    if (!state.currentLocation ) getLocation();
 });
 
 function loadState(){
