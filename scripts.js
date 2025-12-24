@@ -141,9 +141,11 @@ const cancelBtn = document.getElementById('cancel');
 document.addEventListener('DOMContentLoaded', () => {     
     loadState();
     setupEvents();
-    showLoading();
     loadWeather();
-    if (!state.currentLocation ) getLocation();
+
+    setTimeout(() => {
+        if (!state.currentLocation ) getLocation();
+    }, 300);
 });
 
 function loadState(){
@@ -166,7 +168,7 @@ function setupEvents(){
 }
 function getLocation(){
     if (!navigator.geolocation){
-        showError("Геолокация не поддерживается браузером");
+        showError("Геолокация не поддерживается");
         hideLoading();
         showNoData();
         return; 
