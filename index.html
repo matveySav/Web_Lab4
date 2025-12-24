@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Савальский Lab4</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="app">
+        <header>
+            <h1>Прогноз погоды</h1>
+            <div class="controls">
+                <button id="refresh">Обновить</button>
+                <button id="addCity">Добавить город</button>
+            </div>
+        </header>
+
+        <div id="loading">Загрузка...</div>
+
+        <div id="error" class="hidden">
+            <p id="errorText"></p>
+            <button id="retry">Повторить</button>
+        </div>
+
+        <main>
+            <div id="current" class="hidden">
+                <h2>Текущее местоположение</h2>
+                <div id="currentWeather"></div>
+            </div>
+
+            <div id="cities" class="hidden">
+                <h2>Добавленные города</h2>
+                <div id="citiesWeather"></div>
+            </div>
+
+            <div id="noData" class="hidden">
+                <p>Нет данных. Добавьте город.</p>
+                <button id="addFirst">Добавить город</button>
+            </div>
+        </main>
+
+        <div id="modal" class="hidden">
+            <div class="modal-box">
+                <h3>Добавить город</h3>
+                <input type="text" id="cityName" placeholder="Введите город">
+                <div id="suggestions"></div>
+                <p id="inputError" class="hidden">Ошибка</p>
+                <div class="buttons">
+                    <button id="save">Добавить</button>
+                    <button id="cancel">Отмена</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="scripts.js"></script>
+</body>
+</html>
